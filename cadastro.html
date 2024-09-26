@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <p>Preencha as informações para se cadastrar</p>
+        <form id="formulario" onsubmit="cadastro(event)">
+            <input type="text" placeholder="Usuário" id="usuario">
+            <input type="email" placeholder="Email" id="email">
+            <input type="password" placeholder="Senha" id="senha">
+            <input type="password" placeholder="Confirmar senha" id="confirSenha">
+
+            <button id="entrar" type="submit">Entrar</button>
+        </form>
+
+        <a href="index.html">Fazer login</a>
+    </div>
+    <script>
+        function cadastro(event) {
+            event.preventDefault(); 
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const confirSenha = document.getElementById('confirSenha').value;
+            const email = document.getElementById('email').value;
+
+            if(usuario === "" || email === "" || senha === "" || confirSenha === "") {
+                alert("Campos faltando");
+                return false;
+            }
+
+            if(senha !== confirSenha) {
+                alert("Senhas não correspondem");
+                return false;
+            } else {
+                alert("Cadastro realizado com sucesso");
+                window.location.replace("./index.html");
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
